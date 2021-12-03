@@ -1,11 +1,13 @@
 {
   "name": "billingmojo-react",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "your description",
   "main": "dist/index.cjs.js",
+  "repository": "ahmedmassive/billingmojo-react",
   "scripts": {
     "build": "rollup -c",
-    "start": "rollup -c -w"
+    "start": "rollup -c -w",
+    "push": "git add . && git commit -m 'pushing code' && git push"
   },
   "peerDependencies": {
     "react": "^17.0.1",
