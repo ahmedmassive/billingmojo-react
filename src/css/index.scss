@@ -3,6 +3,27 @@
 .bmo_react {
   font-family: Roboto;
   font-size: 12px;
+
+  button {
+    background-color: rgb(46, 46, 46);
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #464646;
+    }
+  }
+
+  input {
+    background-color: white;
+    border: 1px solid rgb(174, 174, 174);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
   .container {
     background-color: white;
     padding: 10px;

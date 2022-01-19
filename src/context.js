@@ -11,7 +11,7 @@ const cookieTypes = {
   page: "bmo_page_url",
 };
 
-function MainContextProvider({ children, workspace, apikey }) {
+function MainContextProvider({ children, workspace, apikey, debug }) {
   const [state, setState] = useState({
     apikey: apikey,
     workspace: workspace,
@@ -88,16 +88,19 @@ function MainContextProvider({ children, workspace, apikey }) {
         <div className="container">
           {state.error ? <>{state.error_msg}</> : children}
 
-          <div
-            style={{
-              marginTop: 50,
-              background: "black",
-              color: "white",
-              padding: 20,
-            }}
-          >
-            <pre>{JSON.stringify(state)}</pre>
-          </div>
+          {debug && (
+            <div
+              style={{
+                marginTop: 50,
+                background: "black",
+                color: "white",
+                padding: 20,
+                borderRadius: 5,
+              }}
+            >
+              <pre>{JSON.stringify(state)}</pre>
+            </div>
+          )}
         </div>
       </div>
     </MainContext.Provider>

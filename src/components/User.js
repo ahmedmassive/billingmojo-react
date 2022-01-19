@@ -10,7 +10,11 @@ export default function User() {
             <>Loading...</>
           ) : (
             <>
-              <div>User Profile</div>
+              <h2>Billing Info</h2>
+              <input placeholder="First Name" />
+              <input placeholder="Last Name" />
+              <input placeholder="Billing Email" />
+              <button>somethin</button>
             </>
           )}
         </>

@@ -13,7 +13,7 @@
 
   var e=[],t=[];function n(n,r){if(n&&"undefined"!=typeof document){var a,s=!0===r.prepend?"prepend":"append",d=!0===r.singleTag,i="string"==typeof r.container?document.querySelector(r.container):document.getElementsByTagName("head")[0];if(d){var u=e.indexOf(i);-1===u&&(u=e.push(i)-1,t[u]={}),a=t[u]&&t[u][s]?t[u][s]:t[u][s]=c();}else a=c();65279===n.charCodeAt(0)&&(n=n.substring(1)),a.styleSheet?a.styleSheet.cssText+=n:a.appendChild(document.createTextNode(n));}function c(){var e=document.createElement("style");if(e.setAttribute("type","text/css"),r.attributes)for(var t=Object.keys(r.attributes),n=0;n<t.length;n++)e.setAttribute(t[n],r.attributes[t[n]]);var a="prepend"===s?"afterbegin":"beforeend";return i.insertAdjacentElement(a,e),e}}
 
-  var css = "@import url(\"https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap\");\n.bmo_react {\n  font-family: Roboto;\n  font-size: 12px;\n}\n.bmo_react .container {\n  background-color: white;\n  padding: 10px;\n}";
+  var css = "@import url(\"https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap\");\n.bmo_react {\n  font-family: Roboto;\n  font-size: 12px;\n}\n.bmo_react button {\n  background-color: #2e2e2e;\n  border: 1px solid black;\n  padding: 10px;\n  border-radius: 5px;\n  color: white;\n  cursor: pointer;\n}\n.bmo_react button:hover {\n  background-color: #464646;\n}\n.bmo_react input {\n  background-color: white;\n  border: 1px solid #aeaeae;\n  padding: 10px;\n  border-radius: 5px;\n}\n.bmo_react .container {\n  background-color: white;\n  padding: 10px;\n}";
   n(css,{});
 
   function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -32,7 +32,8 @@
   function MainContextProvider(_ref) {
     var children = _ref.children,
         workspace = _ref.workspace,
-        apikey = _ref.apikey;
+        apikey = _ref.apikey,
+        debug = _ref.debug;
 
     var _useState = React.useState({
       apikey: apikey,
@@ -109,12 +110,13 @@
       className: "bmo_react"
     }, /*#__PURE__*/React__default["default"].createElement("div", {
       className: "container"
-    }, state.error ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, state.error_msg) : children, /*#__PURE__*/React__default["default"].createElement("div", {
+    }, state.error ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, state.error_msg) : children, debug && /*#__PURE__*/React__default["default"].createElement("div", {
       style: {
         marginTop: 50,
         background: "black",
         color: "white",
-        padding: 20
+        padding: 20,
+        borderRadius: 5
       }
     }, /*#__PURE__*/React__default["default"].createElement("pre", null, JSON.stringify(state))))));
   }
@@ -125,7 +127,13 @@
     },
         ctx = _ref.ctx;
 
-    return /*#__PURE__*/React__default["default"].createElement("div", null, ctx ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, ctx.loading ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, "Loading...") : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", null, "User Profile"))) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, "This component is not wrapped under the context component. Please nest it under the Context component from the library."));
+    return /*#__PURE__*/React__default["default"].createElement("div", null, ctx ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, ctx.loading ? /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, "Loading...") : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("h2", null, "Billing Info"), /*#__PURE__*/React__default["default"].createElement("input", {
+      placeholder: "First Name"
+    }), /*#__PURE__*/React__default["default"].createElement("input", {
+      placeholder: "Last Name"
+    }), /*#__PURE__*/React__default["default"].createElement("input", {
+      placeholder: "Billing Email"
+    }), /*#__PURE__*/React__default["default"].createElement("button", null, "somethin"))) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, "This component is not wrapped under the context component. Please nest it under the Context component from the library."));
   }
 
   var returnLibrary = function returnLibrary() {
