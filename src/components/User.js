@@ -6,11 +6,19 @@ export default function User() {
     <div>
       {ctx ? (
         <>
-          <div>User Profile</div>
-          <pre>{JSON.stringify(ctx)}</pre>
+          {ctx.loading ? (
+            <>Loading...</>
+          ) : (
+            <>
+              <div>User Profile</div>
+            </>
+          )}
         </>
       ) : (
-        <>Context not found/initialized</>
+        <>
+          This component is not wrapped under the context component. Please nest
+          it under the Context component from the library.
+        </>
       )}
     </div>
   );

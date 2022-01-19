@@ -32,5 +32,9 @@
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-styles": "^3.12.2",
     "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.1",
+    "sass": "^1.49.0"
   }
 }

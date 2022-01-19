@@ -1,6 +1,6 @@
 import Context from "./context";
 
-import User from ".//components/User";
+import User from "./components/User";
 const returnLibrary = () => {
   return {
     Context: Context,
